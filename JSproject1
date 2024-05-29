@@ -1,0 +1,67 @@
+/*
+Assessment Requirements
+1. Create a variable that can hold a number of NFT's. What type of variable might this be?
+2. Create an object inside your mintNFT function that will hold the metadata for your NFTs. 
+   The metadata values will be passed to the function as parameters. When the NFT is ready, 
+   you will store it in the variable you created in step 1
+3. Your listNFTs() function will print all of your NFTs metadata to the console (i.e. console.log("Name: " + someNFT.name))
+4. For good measure, getTotalSupply() should return the number of NFT's you have created
+*/
+
+// create a variable to hold your NFT's
+
+let Worldcup_NFTs = [];
+
+// this function will take in some values as parameters, create an
+// NFT object using the parameters passed to it for its metadata, 
+// and store it in the variable above.
+function mintNFT (year,winner,score,hosted) {
+    const cup = {
+        year: year,
+        winner: winner,
+        score: score,
+        hosted: hosted
+    };
+    Worldcup_NFTs.push(cup);
+    console.log("Minted: " + year);
+}
+
+// create a "loop" that will go through an "array" of NFT's
+// and print their metadata with console.log()
+function listNFTs () {
+    console.log("\n");
+    for (let i = 0; i < Worldcup_NFTs.length; i++){
+        const nft = Worldcup_NFTs[i];
+        console.log(`Year: ${nft.year}`);
+        console.log(`Winner: ${nft.winner}`);
+        console.log(`Score: ${nft.score}`);
+        console.log(`Hosted: ${nft.hosted}`);
+        console.log("\n");
+    }
+}
+
+// print the total number of NFTs we have minted to the console
+function getTotalSupply() {
+    return Worldcup_NFTs.length;
+}
+
+// call your functions below this line
+
+mintNFT("1975", "West Indies", "291-8", "England");
+mintNFT("1979", "West Indies", "286-9", "England");
+mintNFT("1983", "India", "183-10", "England");
+mintNFT("1987", "Australia", "253-5", "India and Pakistan");
+mintNFT("1992", "Pakistan", "249-6", "Australia and New Zealand");
+mintNFT("1996", "Srilanka", "245-3", "India and Pakistan");
+mintNFT("1999", "Australia", "133-2", "England");
+mintNFT("2003", "Australia", "359-2", "South Africa");
+mintNFT("2007", "Australia", "281-4", "West Indies");
+mintNFT("2011", "India", "277-4", "India and Bangladesh");
+mintNFT("2015", "Australia", "186-3", "Australia and New Zealand");
+mintNFT("2019", "England", "241-10", "England and Wales");
+mintNFT("2023", "Australia", "241-4", "India");
+
+listNFTs();
+
+const totalNFTs = getTotalSupply();
+console.log("Total Worldcup Winners: " + totalNFTs);
